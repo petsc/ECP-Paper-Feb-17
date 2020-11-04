@@ -1,0 +1,11 @@
+set logscale y
+set title "Total Time Per Multigrid Level (W-cycles), CPU vs. GPU (lower is better)"
+set xlabel "Grid level (0 is coarsest)"
+set ylabel "Wall-clock time (seconds)"
+set key left bottom reverse Left
+plot "cpu-w-no_gpu_aware_mpi-no_smpiarg.1.sums_per_level" with linespoints lw 3 title "CPU, 24 ranks"
+replot "gpu-w-no_gpu_aware_mpi.2.sums_per_level" with linespoints lw 3 title "GPU, 24 ranks"
+replot "gpu-w-bind-below-20000-no_gpu_aware_mpi.1.sums_per_level" with linespoints lw 3 title "CPU+GPU, 24 ranks, levels 0-4 bound to CPU"
+set terminal pdf
+set output "w-cpu_vs_gpu_by_level.pdf"
+replot
