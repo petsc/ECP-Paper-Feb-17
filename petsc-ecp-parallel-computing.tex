@@ -1,8 +1,7 @@
-\listfiles
-\documentclass[5p,times]{elsarticle}
+\documentclass[10pt,journal,compsoc]{IEEEtran}
 
+\usepackage{cite}
 \usepackage{lineno,hyperref}
-\hypersetup{pdfauthor=author} % to get rid of the hyperref warning caused by corref
 \usepackage{booktabs}
 \modulolinenumbers[5]
 \usepackage{color}
@@ -42,40 +41,6 @@
     firstnumber=1,
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
-%%%%%%%%%%%%%%%%%%%%%%%
-
-% Numbered
-% \bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-% \bibliographystyle{model1a-num-names}
-
-%% Harvard
-% \bibliographystyle{model2-names}\biboptions{authoryear}
-
-%% Vancouver numbered
-% \usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-% \usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-%% APA style
-% \bibliographystyle{model5-names}\biboptions{authoryear}
-
-%% AMA style
-% \usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style, distributed in TeX Live 2019
-\bibliographystyle{elsarticle-num}
-% \usepackage{numcompress}\bibliographystyle{elsarticle-num-names}
-% \bibliographystyle{elsarticle-harv}\biboptions{authoryear}
-%%%%%%%%%%%%%%%%%%%%%%%
-
 \newif\ifargonnereport
 \argonnereportfalse
 \newif\iffinal
@@ -109,46 +74,59 @@
 \input{cover}
 \fi
 
-\begin{frontmatter}
-
-IEEE Transactions on Parallel and distributed systems, TPDS ? 15 pages Exascale issue not just ECP.
-
-
-%% \title{Towards PETSc Performance Portability for Exascale Systems}
 \title{A place-holder title:  PETScSF: Abstracting Communication for Scalable Communication}
 
 % names below are just copied from previous papers, they are not neccessarily involved in this paper.
 %% Authors: Add yourself and indicate your affiliation(s) via footnotes.
-%% I put a few authors in just to demonstrate how we want do the author and affiliation listing.
-\author[argonne-address]{Richard Tran Mills \corref{mycorrespondingauthor}} % Marking Richard as corresponding author for now; we can decide who this should actually be later.
-\cortext[mycorrespondingauthor]{Corresponding author}
-\ead{rtmills@anl.gov}
 
-\author[lbnl-address]{Mark F. Adams}
-\author[argonne-address]{Satish Balay}
-\author[cu-address]{Jed Brown}
-\author[argonne-address]{Alp Dener}
-\author[buffalo-address]{Matthew Knepley}
-\author[techx-address]{Scott E. Kruger}
-\author[uchicago-address]{Hannah~Morgan}
-\author[argonne-address]{Todd Munson}
-\author[argonne-address,tuwien-address]{Karl~Rupp}
-\author[argonne-associate-address]{Barry F. Smith}
-\author[kaust-address]{Stefano Zampini}
-\author[argonne-address]{Hong Zhang}
-\author[argonne-address]{Junchao Zhang}
+\author{
+\IEEEauthorblockN{
+  Mark F. Adams\IEEEauthorrefmark{1},		% LBNL
+  Satish Balay\IEEEauthorrefmark{2},		% ANL
+  Jed Brown\IEEEauthorrefmark{3},		% CU
+  Alp Dener\IEEEauthorrefmark{2},		% ANL
+  Matthew Knepley\IEEEauthorrefmark{4},		% Buffalo
+  Scott E. Kruger\IEEEauthorrefmark{5},		% Tech-X
+  Richard Tran Mills\IEEEauthorrefmark{2},	% ANL
+  Todd Munson\IEEEauthorrefmark{2},		% ANL
+  Karl Rupp\IEEEauthorrefmark{6},		% TU Wien
+  Barrk F. Smith\IEEEauthorrefmark{7},		% ANL associate
+  Stefano Zampini\IEEEauthorrefmark{8},		% Kaust
+  Hong Zhang\IEEEauthorrefmark{2} and		% ANL
+  Junchao Zhang\IEEEauthorrefmark{2}		% ANL
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{1}Lawrence Berkeley National Laboratory, Berkeley, CA 94720 USA
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{2}Argonne National Laboratory, 9700 S. Cass Avenue, Lemont, IL 60439 USA
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{3}University of Colorado Boulder, Boulder, CO 80302 USA
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{4}University at Buffalo, Buffalo, NY 14260 USA
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{5}Tech-X Corporation, 5260 Arapahoe Ave. Suite, A, Boulder, CO 80303 USA
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{6}Institute for Microelectronics, TU Wien, Gusshausstrasse 27-29/E360, A-1040 Wien, Austria
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{7}Argonne Associate of Global Empire, LLC, Argonne National Laboratory, 9700 S. Cass Avenue, Lemont, IL 60439 USA
+}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{7}King Abdullah University of Science and Technology, Extreme Computing Research Center, Thuwal, Saudi Arabia
+}
+}
 
-\address[argonne-address]{Argonne National Laboratory, 9700 S. Cass Avenue, Lemont, IL 60439 US}
-\address[buffalo-address]{University at Buffalo, Buffalo, NY 14260 USA}
-\address[lbnl-address]{Lawrence Berkeley National Laboratory, Berkeley, CA 94720 USA}
-\address[uchicago-address]{University of Chicago, Chicago, IL 60637 USA}
-\address[cu-address]{University of Colorado Boulder, Boulder, CO 80302 USA}
-\address[techx-address]{5260 Arapahoe Ave. Suite, A, Boulder, CO 80303 USA}
-\address[tuwien-address]{Institute for Microelectronics, TU Wien, Gusshausstrasse 27-29/E360, A-1040 Wien}
-\address[argonne-associate-address]{Argonne Associate of Global Empire, LLC, Argonne National Laboratory, 9700 S. Cass Avenue, Lemont, IL 60439 USA }
-\address[kaust-address]{King Abdullah University of Science and Technology, Extreme Computing Research Center, Thuwal, Saudi Arabia}
+\maketitle
 
 \begin{abstract}
+IEEE Transactions on Parallel and Distributed Systems, Due February 17, 2021, 12 pages, double column, special exascale issue (not just ECP).
+
+
 The Portable Extensible Toolkit for Scientific computation (PETSc)
 library delivers scalable solvers for
 nonlinear time-dependent differential and algebraic equations and for numerical optimization.
@@ -167,12 +145,9 @@ flexibility and high performance achieved
 on current GPU-based systems.
 \end{abstract}
 
-\begin{keyword}
-numerical software \sep high-performance computing \sep GPU acceleration \sep many-core \sep performance portability \sep exascale % \sep scalable solvers \sep PETSc \sep CUDA \sep SYCL \sep HIP \sep Kokkos
-\MSC[2010] 65F10 \sep 65F50 \sep 68N99 \sep 68W10
-\end{keyword}
-
-\end{frontmatter}
+\begin{IEEEkeywords}
+Numerical software, high-performance computing, GPU acceleration, many-core, performance portability, exascale.
+\end{IEEEkeywords}
 
 \linenumbers
 
@@ -1616,6 +1591,7 @@ and object management, in particular, will allow us to achieve exascale performa
 
 
 \section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
 \noindent
 This work was supported by the Exascale Computing Project (17-SC-20-SC), a collaborative 
 effort of two US Department of Energy organizations (Office of Science and the National
@@ -1627,7 +1603,48 @@ Argonne and Oak Ridge Leadership Computing Facilities, DOE Office of Science
 User Facilities supported under Contracts DE-AC02-06CH11357 and 
 DE-AC05-00OR22725, respectively.
 
-\bibliography{mybibfile}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,mybibfile}
+
+\begin{IEEEbiographynophoto}
+{Mark F. Adams} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Satish Balay} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Jed Brown} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Alp Dener} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Matthew Knepley} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Scott E. Kruger} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Richard Tran Mills} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Todd Munson} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Karl Rupp} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Barry F. Smith} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Stefano Zampini} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Hong Zhang} is
+\end{IEEEbiographynophoto}
+\begin{IEEEbiographynophoto}
+{Junchao Zhang} is
+\end{IEEEbiographynophoto}
 
 \clearpage
 \onecolumn
